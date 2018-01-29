@@ -1,0 +1,5 @@
+name: blogprac
+type: module
+description: A module that will output the appropriate blog data, for just subscribers!
+core: 8.x
+package: Custom

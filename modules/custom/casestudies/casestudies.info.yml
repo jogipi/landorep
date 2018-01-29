@@ -1,0 +1,5 @@
+name: casestudies
+type: module
+description: Allows packaging the DOM elements based on the URL passed. Then parses these DOM elements to grab information and populate a form to be submitted.
+core: 8.x
+package: Custom

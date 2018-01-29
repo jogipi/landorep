@@ -1,0 +1,237 @@
+// Layout
+// ------
+// Using a negative margin technique, made possible with Bourbon Neat, the page
+// is loaded in this order:
+
+// 1. Header
+// 2. Content
+// 3. Navigation menus
+// 4. Sidebar Left
+// 5. Sideabr Right
+//
+// Layout rules.
+// (Disclaimer: do not change if you're not sure you know what you're doing.)
+
+.container
+  @include outer-container
+  width: auto
+
+#content
+  .no-sidebar &
+    // 100% width for small screens. No definitions required.
+    // Same logic for medium screens. No definitions required.
+    // Same logic for large screens. No definitions required.
+
+  .one-sidebar.sidebar-second &
+    // 100% width for small screens. No definitions required.
+    // Span this div 6 columns wide for medium screens.
+    @include media($medium-screen-up)
+      @include span-columns(6)
+    // Span this div 8 columns wide for large screens.
+    @include media($large-screen-up)
+      @include span-columns(8)
+
+  .one-sidebar.sidebar-first &
+    // 100% width for small screens. No definitions required.
+    // Span this div 6 columns wide for medium screens.
+    @include media($medium-screen-up)
+      @include span-columns(6)
+      @include shift(2)
+    // Span this div 9 columns wide for large screens.
+    @include media($large-screen-up)
+      @include span-columns(9)
+      @include shift(3)
+
+  .two-sidebars &
+    // 100% width for small screens. No definitions required.
+    // Span this div 4 columns wide for medium screens.
+    @include media($medium-screen-up)
+      @include span-columns(4)
+      @include shift(2)
+    // Span this div 5 columns wide for large screens.
+    @include media($large-screen-up)
+      @include span-columns(5)
+      @include shift(3)
+
+#sidebar-first
+  // 100% width for small screens. No definitions required.
+  // Span this div 2 columns wide for medium screens.
+  @include media($medium-screen-up)
+    @include span-columns(2)
+    // Shift it to the left to place it in the far left column. Different shift for two-sidebar and one-sidebar layout.
+    @include shift(-6)
+    .one-sidebar.sidebar-first &
+      @include shift(-8)
+  @include media($large-screen-up)
+    // Span this div 3 columns wide for large screens.
+    @include span-columns(3)
+    // Shift it to the left to place it in the far left column. Different shift for two-sidebar and one-sidebar layout.
+    @include shift(-8)
+    .one-sidebar.sidebar-first &
+      @include shift(-12)
+
+#sidebar-second
+  // 100% width for small screens. No definitions required.
+  // Span this div 2 columns wide for medium screens.
+  @include media($medium-screen-up)
+    @include span-columns(2)
+    @include shift(0)
+  @include media($large-screen-up)
+    // Span this div 4 columns wide for large screens.
+    @include span-columns(4)
+    @include shift(0)
+
+#footer
+  float: none
+  clear: both
+
+// Region Colors. Delete when starting a new theme.
+#header, #footer,
+#sidebar-first,
+#sidebar-second,
+#navigation
+  background: rgba(#aaa, 0.2)
+
+// Layout Helpers
+#header,
+#footer,
+.mission,
+.breadcrumb,
+.node
+  clear: both
+
+// sidebar white and change img added
+#block-views-block-sports-side-bar-block-1-2
+
+    .views-row
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2)
+      transition: 0.3s
+      background-color: white
+      margin-top: 10px
+      margin-bottom: 10px
+      margin-right: 10px
+      margin-left: 10px
+      padding-left: 4px
+      font-size: small
+      margin-top: 5%
+
+      div:nth-child(2)
+        margin-top: -7px
+
+        span
+          color: grey
+          font-size: smaller
+          padding-left: 25%
+          position: relative
+
+      div:last-child
+        color: #565556
+        margin-bottom: -7px
+
+    .field-content.sidebar-taxname
+      font-size: 84%
+      font-weight: bold
+      margin-left: 24%
+      a
+        color: black
+
+    .field-content.sidebar-taximg
+      position: relative
+      margin-top: -27px
+      padding-bottom: 10px
+      width: 18%
+
+    .field-content.sidebar-link a
+      padding-right: 200px
+      padding-bottom: 21px
+      padding-top: 31px
+      color: rgba(0,0,0,0)
+
+
+#block-my-theme-content
+
+    .field-content.blog-author
+      position: absolute
+      margin-top: -167px
+      z-index: -1
+      span > :first-child
+        color: #bdbdc8
+        font-size: 76%
+        margin-left: 450px
+
+    .field-content.blog-logo
+      margin-left: 209px
+      text-transform: uppercase
+      position: absolute
+      font-family: "Charter BD BT", Times New Roman
+      font-size: 89%
+      a:first-child
+        color: #1a67ce
+
+    .field-content.blog-date
+      position: absolute
+      font-size: 79%
+      margin-left: 300px
+      color: #bdbdc8
+
+    .field-content.blog-title
+      position: absolute
+      font-size: larger
+      font-weight: bolder
+      margin-left: 210px
+      margin-top: 16px
+      a:first-child
+        color: black
+
+    .field-content.blog-body
+      font-size: 90%
+      margin-left: 209px
+      position: absolute
+      margin-top: 46px
+      color: #565556
+
+    .field-content.blog-img
+      margin-left: -1%
+      margin-top:  22px
+      margin-bottom: 45px
+
+
+    //.field-content.team-date
+      position: absolute
+      font-size: 79%
+      margin-left: 7px
+      color: #bdbdc8
+
+
+    //.field-content.team-title
+      position: relative
+      font-size: larger
+      font-weight: bolder
+      margin-top: 16px
+      a:first-child
+        color: black
+
+    //.field-content.team-body
+      font-size: 90%
+      position: absolute
+      margin-top: 46px
+      color: #565556
+
+    //.field-content.team-img
+      margin-left: -1%
+      margin-top:  22px
+      margin-bottom: 45px
+
+
+    .nfl__name
+      pointer-events: none
+      font-size: 235%
+      text-align: -webkit-center
+      padding-left: 60px
+
+    .nfl__taximage
+      margin-top: -108px
+
+
+
+

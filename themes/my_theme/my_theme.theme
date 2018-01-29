@@ -1,0 +1,106 @@
+<?php
+
+/**
+ * @file
+ * Preprocess functions for My Theme.
+ */
+
+use Drupal\Core\Cache\CacheableMetadata;
+use Drupal\Core\Database\Database;
+use Drupal\file\Entity\File;
+
+/**
+ * Prepares variables for the html.html.twig template.
+ */
+function my_theme_preprocess_html(&$variables) {
+  try {
+    $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+  }
+  catch (Exception $e) {
+    // If the database is not yet available, set default values for these
+    // variables.
+    $variables['is_front'] = FALSE;
+  }
+
+  // If we're on the front page.
+  if (!$variables['is_front']) {
+    // Add unique classes for each page and website section.
+    $path = \Drupal::service('path.current')->getPath();
+    $alias = \Drupal::service('path.alias_manager')->getAliasByPath($path);
+    $alias = trim($alias, '/');
+    if (!empty($alias)) {
+      $name = str_replace('/', '-', $alias);
+      $variables['attributes']['class'][] = 'page-' . $name;
+      list($section,) = explode('/', $alias, 2);
+      if (!empty($section)) {
+        $variables['attributes']['class'][] = 'section-' . $section;
+      }
+    }
+  }
+
+  // Add cachability metadata.
+  $theme_name = \Drupal::theme()->getActiveTheme()->getName();
+  $theme_settings = \Drupal::config($theme_name . '.settings');
+  CacheableMetadata::createFromRenderArray($variables)
+    ->addCacheableDependency($theme_settings)
+    ->applyTo($variables);
+  // Union all theme setting variables to the html.html.twig template.
+  $variables += $theme_settings->getOriginal();
+}
+
+/**
+ * Prepares variables for the field.html.twig template.
+ */
+function my_theme_preprocess_field(&$variables, $hook) {
+  // Make additional variables available to the template.
+  $variables['bundle'] = $variables['element']['#bundle'];
+}
+
+function my_theme_preprocess_views_view_fields(&$variables) {
+ $db = Database::getConnection();
+
+ $tid = $variables['row']->tid;
+ $result = $db -> query("Select vid FROM {taxonomy_term_data} WHERE tid=:tid", array(tid => $tid));
+ $vocab = $result->fetchObject()->vid;
+ $vocabName = new stdClass();
+ $vocabName->wrapper_element = "div";
+ $vocabName->element_type = "span";
+ $vocabName->class = "taxname";
+ $vocabName->content = strtoupper($vocab);
+
+ $result2 = $db -> query("Select entity_id FROM {node__field_nfl_logo WHERE field_nfl_logo_target_id=:tid ORDER BY entity_id DESC", array(tid => $tid));
+ $entity_id = $result2->fetchObject()->entity_id;
+ $result3 = $db -> query("Select title FROM {node_field_data} WHERE nid=:entity_id", array(entity_id => $entity_id));
+ $titleFetch = $result3->fetchObject()->title;
+ $title = new stdClass();
+ $title->content = $titleFetch;
+ $title->wrapper_element = "div";
+ $title->element_type = "span";
+ $title->class = "blogtitle";
+ $variables['fields']['blogtitle'] = $title;
+
+ array_splice($variables['fields'],1,0,array($vocabName));
+
+ //kint($variables['fields']);
+}
+
+function my_theme_preprocess_views_view_unformatted(&$variables) {
+ /*   $db = Database::getConnection();
+    $tid = $variables['row']->tid;
+   // $result = $db -> query("Select vid FROM {taxonomy_term_data} WHERE tid=:tid", array(tid => $tid));
+    //kint($variables['fields']);
+
+    $node = \Drupal::entityManager()->getStorage('node')->load(1); // random NID
+    // Test if this node has our field
+    if ($node->hasField('taxonomy_term__field_taximage')) {
+        $entity_ref = $node->get('taxonomy_term__field_taximage');
+        // if our field has data
+        if ($entity_ref->count() > 0) {
+            $output = entity_view($entity_ref->entity, 'default');
+        }
+    }
+
+ */
+
+}
+

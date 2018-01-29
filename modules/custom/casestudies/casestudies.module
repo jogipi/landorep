@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * @file
+ * Contains casestudies.module.
+ */
+/**another commending*/
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function casestudies_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the casestudies module.
+    case 'help.page.casestudies':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Allows packaging the DOM elements based on the URL passed. Then parses these DOM elements to grab information and populate a form to be submitted.') . '</p>';
+      return $output;
+
+
+    default:
+  }
+}
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter() on behalf of casestudies.module.
+ */
+function casestudies_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+    // Change form id here
+    if ($form_id == 'form_test_alter_form') {
+        drupal_set_message('form_test_form_alter() executed.');
+
+    }
+}
+
+function casestudies_menu() {
+    $items = array();
+    $items['admin/config/system/'] = array(
+        'title' => 'Case Studies',
+        'description' => 'Show case studies.',
+        'route_name' => 'case.studies',
+    );
+    return $items;
+
+}

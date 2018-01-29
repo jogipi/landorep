@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains blogprac.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function blogprac_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the blogprac module.
+    case 'help.page.blogprac':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('A module that will output the appropriate blog data, for just subscribers!') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function blogprac_theme() {
+  return [
+    'blogprac' => [
+      'render element' => 'children',
+    ],
+  ];
+}

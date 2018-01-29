@@ -1,0 +1,295 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+}
+
+.container::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+@media screen and (min-width: 45em) {
+  .one-sidebar.sidebar-second #content {
+    float: left;
+    display: block;
+    margin-right: 3.22581%;
+    width: 74.19355%;
+  }
+  .one-sidebar.sidebar-second #content:last-child {
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 60em) {
+  .one-sidebar.sidebar-second #content {
+    float: left;
+    display: block;
+    margin-right: 2.12766%;
+    width: 65.95745%;
+  }
+  .one-sidebar.sidebar-second #content:last-child {
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 45em) {
+  .one-sidebar.sidebar-first #content {
+    float: left;
+    display: block;
+    margin-right: 3.22581%;
+    width: 74.19355%;
+    margin-left: 25.80645%;
+  }
+  .one-sidebar.sidebar-first #content:last-child {
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 60em) {
+  .one-sidebar.sidebar-first #content {
+    float: left;
+    display: block;
+    margin-right: 2.12766%;
+    width: 74.46809%;
+    margin-left: 25.53191%;
+  }
+  .one-sidebar.sidebar-first #content:last-child {
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 45em) {
+  .two-sidebars #content {
+    float: left;
+    display: block;
+    margin-right: 3.22581%;
+    width: 48.3871%;
+    margin-left: 25.80645%;
+  }
+  .two-sidebars #content:last-child {
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 60em) {
+  .two-sidebars #content {
+    float: left;
+    display: block;
+    margin-right: 2.12766%;
+    width: 40.42553%;
+    margin-left: 25.53191%;
+  }
+  .two-sidebars #content:last-child {
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 45em) {
+  #sidebar-first {
+    float: left;
+    display: block;
+    margin-right: 3.22581%;
+    width: 22.58065%;
+    margin-left: -77.41935%;
+  }
+  #sidebar-first:last-child {
+    margin-right: 0;
+  }
+  .one-sidebar.sidebar-first #sidebar-first {
+    margin-left: -103.22581%;
+  }
+}
+
+@media screen and (min-width: 60em) {
+  #sidebar-first {
+    float: left;
+    display: block;
+    margin-right: 2.12766%;
+    width: 23.40426%;
+    margin-left: -68.08511%;
+  }
+  #sidebar-first:last-child {
+    margin-right: 0;
+  }
+  .one-sidebar.sidebar-first #sidebar-first {
+    margin-left: -102.12766%;
+  }
+}
+
+@media screen and (min-width: 45em) {
+  #sidebar-second {
+    float: left;
+    display: block;
+    margin-right: 3.22581%;
+    width: 22.58065%;
+    margin-left: 0%;
+  }
+  #sidebar-second:last-child {
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 60em) {
+  #sidebar-second {
+    float: left;
+    display: block;
+    margin-right: 2.12766%;
+    width: 31.91489%;
+    margin-left: 0%;
+  }
+  #sidebar-second:last-child {
+    margin-right: 0;
+  }
+}
+
+#footer {
+  float: none;
+  clear: both;
+}
+
+#header, #footer,
+#sidebar-first,
+#sidebar-second,
+#navigation {
+  background: rgba(170, 170, 170, 0.2);
+}
+
+#header,
+#footer,
+.mission,
+.breadcrumb,
+.node {
+  clear: both;
+}
+
+#block-views-block-sports-side-bar-block-1-2 .views-row {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  background-color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding-left: 4px;
+  font-size: small;
+  margin-top: 5%;
+}
+
+#block-views-block-sports-side-bar-block-1-2 .views-row div:nth-child(2) {
+  margin-top: -7px;
+}
+
+#block-views-block-sports-side-bar-block-1-2 .views-row div:nth-child(2) span {
+  color: grey;
+  font-size: smaller;
+  padding-left: 25%;
+  position: relative;
+}
+
+#block-views-block-sports-side-bar-block-1-2 .views-row div:last-child {
+  color: #565556;
+  margin-bottom: -7px;
+}
+
+#block-views-block-sports-side-bar-block-1-2 .field-content.sidebar-taxname {
+  font-size: 84%;
+  font-weight: bold;
+  margin-left: 24%;
+}
+
+#block-views-block-sports-side-bar-block-1-2 .field-content.sidebar-taxname a {
+  color: black;
+}
+
+#block-views-block-sports-side-bar-block-1-2 .field-content.sidebar-taximg {
+  position: relative;
+  margin-top: -27px;
+  padding-bottom: 10px;
+  width: 18%;
+}
+
+#block-views-block-sports-side-bar-block-1-2 .field-content.sidebar-link a {
+  padding-right: 200px;
+  padding-bottom: 21px;
+  padding-top: 31px;
+  color: transparent;
+}
+
+#block-my-theme-content .field-content.blog-author {
+  position: absolute;
+  margin-top: -167px;
+  z-index: -1;
+}
+
+#block-my-theme-content .field-content.blog-author span > :first-child {
+  color: #bdbdc8;
+  font-size: 76%;
+  margin-left: 450px;
+}
+
+#block-my-theme-content .field-content.blog-logo {
+  margin-left: 209px;
+  text-transform: uppercase;
+  position: absolute;
+  font-family: "Charter BD BT", Times New Roman;
+  font-size: 89%;
+}
+
+#block-my-theme-content .field-content.blog-logo a:first-child {
+  color: #1a67ce;
+}
+
+#block-my-theme-content .field-content.blog-date {
+  position: absolute;
+  font-size: 79%;
+  margin-left: 300px;
+  color: #bdbdc8;
+}
+
+#block-my-theme-content .field-content.blog-title {
+  position: absolute;
+  font-size: larger;
+  font-weight: bolder;
+  margin-left: 210px;
+  margin-top: 16px;
+}
+
+#block-my-theme-content .field-content.blog-title a:first-child {
+  color: black;
+}
+
+#block-my-theme-content .field-content.blog-body {
+  font-size: 90%;
+  margin-left: 209px;
+  position: absolute;
+  margin-top: 46px;
+  color: #565556;
+}
+
+#block-my-theme-content .field-content.blog-img {
+  margin-left: -1%;
+  margin-top: 22px;
+  margin-bottom: 45px;
+}
+
+#block-my-theme-content .nfl__name {
+  pointer-events: none;
+  font-size: 235%;
+  text-align: -webkit-center;
+  padding-left: 60px;
+}
+
+#block-my-theme-content .nfl__taximage {
+  margin-top: -108px;
+}

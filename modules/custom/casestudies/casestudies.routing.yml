@@ -1,0 +1,22 @@
+casestudies.page:
+  path: /casestudies
+  defaults:
+    _controller: Drupal\casestudies\Controller\CaseStudiesController::caseStudy
+    _title: 'Case Studies'
+  requirements:
+    _permission: 'access content'
+
+casestudies.form:
+  path: /casestudies/form
+  defaults:
+    _form: Drupal\casestudies\Form\CaseStudiesForm
+    _title: 'Cases'
+  requirements:
+    _permission: 'access content'
+
+casestudies.node:
+  path: /casestudies/node/
+  defaults:
+    _title: 'Output from form'
+  requirements:
+    _permission: 'access content'
